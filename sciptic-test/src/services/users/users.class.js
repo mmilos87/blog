@@ -8,6 +8,9 @@ exports.Users = class Users extends Service {
     })
   }
   async find(params) {
+    if(params.query.googleId||params.query.githubId){
+      return super.find(params);
+    }
     const {user}=params;
     if(!user){
       const email=params.query.email;
@@ -23,7 +26,7 @@ exports.Users = class Users extends Service {
     return super.create(data, params);
   }
   async update(id, data, params) {
-    if (data.oldPass && data.newPass && data._needToUpdate_passToNewHashValue && data._needToUpdate_passToNewHashValue == true) {
+    if (data.password && data._needToUpdate_passToNewHashValue && data._needToUpdate_passToNewHashValue == true) {
       return super.update(id, data);
     }
     id = params.user.id;

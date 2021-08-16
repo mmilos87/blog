@@ -5,15 +5,14 @@ const hooks = require('./change-password.hooks');
 
 module.exports = function (app) {
   const options = {
-    Model: createModel(app),
-    paginate: app.get('paginate')
+    Model: createModel(app) 
   };
 
   // Initialize our service with any options it requires
-  app.use('/api/vi/user/changepass', new ChangePassword(options, app));
+  app.use('/api/v1/user/changepass', new ChangePassword(options, app));
 
   // Get our initialized service so that we can register hooks
-  const service = app.service('/api/vi/user/changepass');
+  const service = app.service('/api/v1/user/changepass');
 
   service.hooks(hooks);
 };

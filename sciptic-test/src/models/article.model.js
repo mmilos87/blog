@@ -12,7 +12,9 @@ module.exports = function (app) {
       db.schema.createTable(tableName, table => {
         table.increments('id');
         table.string('text');
-        table.string('userId');
+        table.integer('userId').unsigned().notNullable();
+        table.timestamps(true,true);
+        table.foreign('userId').references('id').inTable('users');
       })
         .then(() => console.log(`Created ${tableName} table`))
         .catch(e => console.error(`Error creating ${tableName} table`, e));

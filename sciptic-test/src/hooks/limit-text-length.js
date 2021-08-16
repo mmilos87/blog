@@ -4,11 +4,8 @@
 // eslint-disable-next-line no-unused-vars
 module.exports = (options = {}) => {
   return async context => {
-    const text = context.data.text;
-    console.log(context);
-    console.log(text.length)
-    if (text.length > 255) {
-      
+    const text = context.data.text; 
+    if (text.length > 255) { 
       text.substr(0, 254);
       context.data.text =  text.substr(0, 254);
       console.log(context.data.text.length)

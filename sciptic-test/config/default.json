@@ -29,15 +29,9 @@
     },
     "oauth": {
       "redirect": "/",
-      "auth0": {
-        "key": "<auth0 oauth key>",
-        "secret": "<auth0 oauth secret>",
-        "subdomain": "<auth0 subdomain>",
-        "scope": [
-          "profile",
-          "openid",
-          "email"
-        ]
+      "github": {
+        "key": "2fa7c6f12f2ad089d104",
+        "secret": "a49109ffcf21987d95aeeb1316200a3c5613552b"
       }
     }
   },

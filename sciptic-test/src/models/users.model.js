@@ -16,6 +16,8 @@ module.exports = function (app) {
         table.string('password')
         table.string('name')
         table.string('auth0Id')
+        table.string('githubId')
+        table.timestamps(true,true);
       })
         .then(() => console.log(`Created ${tableName} table`))
         .catch(e => console.error(`Error creating ${tableName} table`, e))

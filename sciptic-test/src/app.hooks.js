@@ -1,4 +1,11 @@
 // Application hooks that run for every service
+const { MethodNotAllowed } = require('@feathersjs/errors');
+const patchRestrict = async context => {
+  if (!context.data.githubId) {
+    throw new MethodNotAllowed("Patch is not allowed")
+  }
+  return context;
+ }
 
 module.exports = {
   before: {
@@ -7,7 +14,7 @@ module.exports = {
     get: [],
     create: [],
     update: [],
-    patch: [],
+    patch: [patchRestrict],
     remove: []
   },
 

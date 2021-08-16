@@ -10,7 +10,6 @@ exports.Comment = class Comment extends Service {
   async find(params) { 
     return super.find(params);}
   async create(data, params) {
-    console.log(data);
     const { text, articleId } = data;
     const userId = params.user.id;
     const coment = { text, articleId, userId };

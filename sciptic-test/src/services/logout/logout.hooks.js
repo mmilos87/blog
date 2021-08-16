@@ -1,14 +1,13 @@
 const { authenticate } = require('@feathersjs/authentication').hooks;
 const { NotAuthenticated } = require('@feathersjs/errors');
 const checkIfLocalLogin = async context => {
-  console.log(context)
-  if(context.params.user.auth0Id='local') throw new NotAuthenticated("logout")
+ if(context.params.user.auth0Id='local') throw new NotAuthenticated("logout")
   return context;
 }
 module.exports = {
   before: {
-    all: [ authenticate('jwt') ],
-    find: [checkIfLocalLogin],
+    all: [ authenticate('jwt'),],
+    find: [],
     get: [],
     create: [],
     update: [],
@@ -20,8 +19,8 @@ module.exports = {
     all: [],
     find: [],
     get: [],
-    create: [],
-    update: [],
+    create: [checkIfLocalLogin],
+    update: [checkIfLocalLogin],
     patch: [],
     remove: []
   },
