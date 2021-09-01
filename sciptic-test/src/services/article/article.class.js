@@ -11,8 +11,7 @@ exports.Article = class Article extends Service {
 
     return super.find(params);
   }
-  async create(data, params) {
-    console.log(params.user.id);
+  async create(data, params) { 
     const { text } = data;
     const userId = params.user.id;
     const article = { text, userId };

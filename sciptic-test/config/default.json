@@ -30,8 +30,17 @@
     "oauth": {
       "redirect": "/",
       "github": {
-        "key": "2fa7c6f12f2ad089d104",
-        "secret": "a49109ffcf21987d95aeeb1316200a3c5613552b"
+        "key": "GITHUB_CLIENT_ID",
+        "secret": "GITHUB_CLIENT_SECRET"
+      },
+      "google": {
+        "key": "GOOGLE_CLIENT_ID",
+        "secret": "GOOGLE_CLIENT_SECRET",
+        "scope": [
+          "openid",
+          "email"
+        ],
+        "nonce": true
       }
     }
   },
